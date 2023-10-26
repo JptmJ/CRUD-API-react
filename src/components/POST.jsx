@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import postUrl from './Url';
 
 function POST() {
-  const url = "http://localhost:3010/addGoal";
   const [goal, setGoal] = useState({
     goalName: '',
     goalStatus: 'Pending'
@@ -13,7 +13,7 @@ function POST() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post(url, JSON.stringify({
+    axios.post(postUrl().postUrl, JSON.stringify({
       goalName: goal.goalName,
       goalStatus: goal.goalStatus
     }), {
@@ -49,6 +49,7 @@ function POST() {
         <Form.Group className="mb-3">
           <Form.Label>Select Status</Form.Label>
           <Form.Select required name='goalStatus' onChange={(e) => handleInput(e)}>
+            <option value=''>---Select---</option>
             <option value='Pending'>Pending</option>
             <option value='Done'>Done</option>
           </Form.Select>

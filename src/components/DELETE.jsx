@@ -1,3 +1,4 @@
+import deleteUrl from './Url'
 const handleDelete = (id, data, setData) => {
     const userInput = window.prompt("Type YES or NO to delete goal number " + id);
     if (userInput !== null) {
@@ -21,7 +22,7 @@ const handleDelete = (id, data, setData) => {
                 redirect: 'follow'
             };
 
-            fetch("http://localhost:3010/deleteGoal", requestOptions)
+            fetch(deleteUrl().deleteUrl, requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     // Remove the deleted goal from the state

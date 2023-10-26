@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<GET />} />
           <Route path="/POST" element={<POST />} />
           <Route path="/delete" element={<DELETE />} />
-          <Route path="/PUT" element={<PUT />} />
+          <Route path="//update/:id" element={<PUT />} />
         </Routes>
       </Router>
     </div>
